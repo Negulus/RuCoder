@@ -1,0 +1,38 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="RuCoder.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape"
+    shell:SystemTray.IsVisible="True" Orientation="Portrait">
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton x:Name="but_from" IsEnabled="True" Text="Из буфера" Click="but_from_Click" IconUri="/Assets/AppBar/download.png"/>
+            <shell:ApplicationBarIconButton x:Name="but_coder" IsEnabled="True" Text="Кодировать" Click="but_coder_Click" IconUri="/Assets/AppBar/transport.play.png"/>
+            <shell:ApplicationBarIconButton x:Name="but_to" IsEnabled="True" Text="В буфер" Click="but_to_Click" IconUri="/Assets/AppBar/upload.png"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition x:Name="col_1" Height="1*"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition x:Name="col_2" Height="1*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="RuCoder" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox Margin="0" Grid.Row="1" x:Name="text_in" VerticalContentAlignment="Top" TextWrapping="Wrap" InputScope="Text" />
+        <Button Grid.Row="2" x:Name="but_convert" Content="Кодировать" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" Click="but_convert_Click" />
+        <TextBox Margin="0" Grid.Row="3" x:Name="text_out" VerticalContentAlignment="Top" TextWrapping="Wrap" IsReadOnly="True" />
+    </Grid>
+
+</phone:PhoneApplicationPage>
